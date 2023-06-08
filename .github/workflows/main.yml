@@ -13,9 +13,9 @@ jobs:
       postgres:
         image: postgres:13.10
         env:
-          POSTGRES_USER: Jul
-          POSTRGRES_PASSWORD: Jul123
-          POSTGRES_DB: Jul
+          POSTGRES_USER: user
+          POSTRGRES_PASSWORD: user123
+          POSTGRES_DB: django_db
         ports:
           - 5432:5432
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5  
@@ -33,9 +33,9 @@ jobs:
           pip install -r ./backend/requirements.txt
       - name: Test with flake8 and django tests
         env:
-          POSTGRES_USER: Jul
-          POSTGRES_PASSWORD: Jul123
-          POSTGRES_DB: Jul
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: user123
+          POSTGRES_DB: user
           DB_HOST: 127.0.0.1
           DB_PORT: 5432
         run: |
